@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import static org.junit.Assert.assertEquals;
 
 public class NewTest {
@@ -27,9 +26,8 @@ public class NewTest {
     public void checkTitleTest (){
         driver.get(cfg.url());
         logger.info("Otus Page is opened");
-
-        assertEquals(driver.getTitle(), "Онлайн‑курсы для профессионалов, дистанционное" +
-                " обучение современным профессиям");
+        String title = "Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям";
+        assertEquals(driver.getTitle(), title);
         logger.info("Title on page is checked");
     }
 
