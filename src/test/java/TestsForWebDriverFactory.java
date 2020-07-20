@@ -20,7 +20,7 @@ public class TestsForWebDriverFactory {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("--stable-release-mode");
-//        WebDriver driver = WebDriverFactory.create(WebDriverNames.CHROME, (WebDriver.Options) options);
+        driver = WebDriverFactory.create(WebDriverNames.CHROME, options);
         logger.info("Driver is started");
         driver.get(cfg.url());
     }

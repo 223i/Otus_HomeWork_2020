@@ -1,7 +1,7 @@
 package base.webdriverManagers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 
@@ -14,7 +14,7 @@ public class SafariDriverManager extends DriverManagerBase {
         driver = new SafariDriver();
     }
 
-    protected void createDriverWithOptions(WebDriver.Options options) {
+    protected void createDriverWithOptions(Capabilities options) {
         driver = new SafariDriver((SafariOptions) options);
     }
 }

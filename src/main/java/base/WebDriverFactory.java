@@ -3,6 +3,7 @@ package base;
 import base.webdriverManagers.ChromeDriverManager;
 import base.webdriverManagers.FirefoxDriverManager;
 import base.webdriverManagers.SafariDriverManager;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
 
@@ -27,7 +28,7 @@ public class WebDriverFactory {
         return driver;
     }
 
-    public static WebDriver create(WebDriverNames webDriverName, WebDriver.Options options) {
+    public static WebDriver create(WebDriverNames webDriverName, Capabilities options) {
         WebDriver driver = null;
         switch (webDriverName) {
             case CHROME:
@@ -47,7 +48,7 @@ public class WebDriverFactory {
 
 
     private WebDriverNames getDriverProperty() {
-        String nameOfDriver = System.getProperty(WEB_DRIVER_PROPERTY).toUpperCase();
+        String nameOfDriver = System.getProperty(WEB_DRIVER_PROPERTY).toLowerCase();
         return WebDriverNames.valueOf(nameOfDriver);
     }
 }
