@@ -46,8 +46,7 @@ public class WebDriverFactory {
         return driver;
     }
 
-
-    private WebDriverNames getDriverProperty() {
+    public WebDriverNames getDriverProperty() {
         String nameOfDriver = System.getProperty(WEB_DRIVER_PROPERTY).toLowerCase();
         return WebDriverNames.valueOf(nameOfDriver);
     }
