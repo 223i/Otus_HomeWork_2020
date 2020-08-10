@@ -9,4 +9,10 @@ public interface ServerConfig extends Config {
     @Key("url")
     String url();
 
+    @Key("urlYandexMarket")
+    String urlYandexMarket();
+
+    @Key("urlYandexMarketComparison")
+    String urlYandexMarketComparison();
+
 }
