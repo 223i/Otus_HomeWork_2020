@@ -1,3 +1,5 @@
+package HomeWork1;
+
 import config.ServerConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
