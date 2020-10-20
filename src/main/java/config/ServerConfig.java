@@ -15,4 +15,18 @@ public interface ServerConfig extends Config {
     @Key("urlYandexMarketComparison")
     String urlYandexMarketComparison();
 
+    @Key("userEmail")
+    String userEmail();
+
+    @Key("userPassword")
+    String userPassword();
+
+    @Key("urlPersonalAccountBiography")
+    String urlPersonalAccountBiography();
+
+    @Key("telegramContact")
+    String telegramContact();
+
+    @Key("skypeContact")
+    String skypeContact();
 }
