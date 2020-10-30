@@ -1,6 +1,10 @@
 package HomeWork6.createGetUser;
 
 import HomeWork6.services.UserService;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.apache.hc.core5.http.HttpStatus;
 import org.junit.jupiter.api.Test;
@@ -20,6 +24,10 @@ public class GetUserByNameTest {
      * 2.2. Поля id, username, userStatus полученного юзера совпадают с ожидаемыми значениями полей
      */
     @Test
+    @Epic("Petshop")
+    @Feature("Получение юзера")
+    @Story("Получение юзера по имени")
+    @Description("Тест проверяет возможность получения юзера по имени")
     public void checkGetValidUserByName(){
         Response response;
         String expectedUserName = "user1";
@@ -44,6 +52,10 @@ public class GetUserByNameTest {
      * 2.2. Значения полей type, message совпадают с ожидаемыми значениями
      */
     @Test
+    @Epic("Petshop")
+    @Feature("Получение юзера")
+    @Story("Негативный сценарий: Получение юзера по имени")
+    @Description("Тест проверяет ответ сервера при запросе несуществующего юзера")
     public void checkGetUserByName_UserNotFound(){
         Response response;
         String expectedUserName = "q$3";

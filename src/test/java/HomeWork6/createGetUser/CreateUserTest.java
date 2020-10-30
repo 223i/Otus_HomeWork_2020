@@ -2,6 +2,10 @@ package HomeWork6.createGetUser;
 
 import HomeWork6.dto.User;
 import HomeWork6.services.UserService;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import io.restassured.response.Response;
 import org.apache.hc.core5.http.HttpStatus;
 import org.junit.jupiter.api.Test;
@@ -22,6 +26,10 @@ public class CreateUserTest {
      * 2.2. Поля type, message совпадают с ожидаемыми значениями полей
      */
     @Test
+    @Epic("Petshop")
+    @Feature("Создание юзера")
+    @Story("Создание валидного юзера")
+    @Description("Тест проверяет возможность создания юзера")
     public void checkCreateValidUser() {
 
         Response response;
@@ -61,6 +69,10 @@ public class CreateUserTest {
      * 2.2. Поле message совпадает с ожидаемым значением
      */
     @Test
+    @Epic("Petshop")
+    @Feature("Создание юзера")
+    @Story("Создание невалидного юзера")
+    @Description("Тест проверяет негативный сценарий: создания юзера с невалидными данными")
     public void checkCreateInvalidUser() {
 
         Response response;
@@ -88,6 +100,10 @@ public class CreateUserTest {
      * 2.1. Статус код 200
      */
     @Test
+    @Epic("Petshop")
+    @Feature("Создание юзера")
+    @Story("Создание нескольких юзеров")
+    @Description("Тест проверяет возможность заложения нескольких юзеров")
     public void checkCreateSeveralUsers() {
 
         Random random = new Random();
