@@ -5,6 +5,7 @@ import HomeWork4.PageObjects.PrivateAccountPageOtus;
 import HomeWork4.PageObjects.StartPageOtus;
 import config.ServerConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,6 +36,10 @@ public class OtusTestWithPageObject {
 
 
     @Test
+    @Epic("Otus")
+    @Feature("Работа с личным кабинетом")
+    @Story("Заполнение персональных данных в личном кабинете")
+    @Description("Тест проверяет, что в личном кабинете можно заполнить данные О себе")
     public void otusTestWithPageObject() throws Exception {
         String nameLat = "NameLatin";
         String lastNameLat = "LastNameLatin";
@@ -68,6 +73,7 @@ public class OtusTestWithPageObject {
 
     }
 
+    @Step("Заполнение персональных данных")
     private void fulfillInformationAboutYourself(String nameLat, String lastNameLat, String birthDay, String country, String city, String englishLevel) {
         PrivateAccountPageOtus privateAccount = new PrivateAccountPageOtus(driver);
         privateAccount.setNameLatinFieldValue(nameLat);
@@ -85,6 +91,7 @@ public class OtusTestWithPageObject {
         logger.info("Personal information has been added into account");
     }
 
+    @Step("Открытие личного аккаунта")
     private void openPersonalAccount() {
         driver.get(config.urlPersonalAccountBiography());
         WebDriverWait wait = new WebDriverWait(driver, 10, 1);
@@ -92,6 +99,7 @@ public class OtusTestWithPageObject {
         logger.info("Personal account is opened");
     }
 
+    @Step("Логин на сайте")
     private void login(String email, String password) {
         StartPageOtus startPage = new StartPageOtus(driver);
         LoginRegistrationPage loginPage = startPage.loginAndRegistrationButtonClick();

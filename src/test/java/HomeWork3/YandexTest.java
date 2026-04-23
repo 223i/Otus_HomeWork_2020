@@ -2,6 +2,7 @@ package HomeWork3;
 
 import config.ServerConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.*;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,6 +32,10 @@ public class YandexTest {
     }
 
     @Test
+    @Epic("Yandex")
+    @Feature("Сравнение продуктов")
+    @Story("Добавление продуктов в сравнение")
+    @Description("Тест проверяет, что мобильные телефоны можно сравнить")
     public void yandexMarketTest() {
 //        String showAllBrandsButton = "//fieldset/legend[contains(text(),'Производитель')] /../footer/button[contains(text(), 'Показать всё')]";
         String showAllBrandsButton = "//legend[contains(text(),'Производитель')]/following-sibling::footer/button[contains(text(), 'Показать всё')]";
@@ -107,6 +112,7 @@ public class YandexTest {
         }
     }
 
+    @Step("Добавление элемента к сравнению")
     private void interactWithComparisonButton(String necessaryBrandModel, WebDriverWait wait, List<WebElement> listWithResults, int i) {
         wait.until(ExpectedConditions.visibilityOf(listWithResults.get(i)));
         wait.until(ExpectedConditions.elementToBeClickable(listWithResults.get(i).findElement(By.xpath("//div[contains(@aria-label,'сравнению')]"))));
@@ -116,6 +122,7 @@ public class YandexTest {
         logger.info("First product from " + necessaryBrandModel + " is added to the comparison list");
     }
 
+    @Step("Фильтрация по производителю")
     private void filterBrand(String brandName, String checkboxBrand) {
         WebDriverWait wait = new WebDriverWait(driver, 15, 1);
         String fieldSetFindBrand = "//fieldset/legend[contains(text(),'Производитель')]/..//input[@name='Поле поиска']";
@@ -127,6 +134,7 @@ public class YandexTest {
         driver.findElement(By.xpath(fieldSetFindBrand)).clear();
     }
 
+    @Step("Клик на элемент {element}")
     private void clickElement(WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);

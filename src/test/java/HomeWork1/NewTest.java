@@ -2,6 +2,10 @@ package HomeWork1;
 
 import config.ServerConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,6 +29,10 @@ public class NewTest {
     }
 
     @Test
+    @Epic("Otus")
+    @Feature("Навигация на сайте")
+    @Story("Открытие стартовой страницы")
+    @Description("Тест проверяет, что страница открылась и заголовок страницы правильный")
     public void checkTitleTest (){
         driver.get(cfg.url());
         logger.info("Otus Page is opened");
